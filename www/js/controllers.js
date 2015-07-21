@@ -25,4 +25,16 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+
+  $scope.getContact = function() {
+    $cordovaContacts.pickContact().then(function(result) {
+      console.log(result);
+    });
+  };
+
+  $scope.getContacts = function() {
+    $cordovaContacts.find({multiple: true}).then(function(result) {
+      console.log(result);
+    });
+  }
 });
